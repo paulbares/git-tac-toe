@@ -2,7 +2,7 @@
 
 |PlayerX wins|PlayerO wins|Ties|
 |-|-|-|
-|4|3|2|
+|5|3|2|
 
 PlayerX's turn.
 
@@ -10,7 +10,7 @@ PlayerX's turn.
 +---+---+---+
 | O |   | O |
 +---+---+---+
-| X |   | X |
+| X | X | X |
 +---+---+---+
 | O | O | X |
 +---+---+---+
