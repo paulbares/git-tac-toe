@@ -1,5 +1,6 @@
 use std::error::Error;
 use open_ttt_lib::board::Position;
+use std::env;
 
 mod game;
 mod tag;
@@ -8,8 +9,8 @@ const STATE_FILE_NAME: &'static str = "resources/current_game_state.json";
 const GAME_FILE_NAME: &'static str = "README.md";
 
 fn main() -> Result<(), Box<dyn Error>> {
-    // To pick first slot to play
-    let sha1 = "f711de64f051cc9e9b9797fca999eff6481ad273";
+    let args: Vec<String> = env::args().collect();
+    let sha1 = &args[1];
 
     let mut game = game::Match::load_from_file(STATE_FILE_NAME);
 

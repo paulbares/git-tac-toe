@@ -170,15 +170,17 @@ impl Match {
     }
 
     pub fn write_to_markdown(&self, path: &str) {
+        let intro = ":x::o: Tic-Tac-Toe played indefinitely by github action runners! \
+         See [my workflow](.github/workflows/play.yaml).\n\n";
         let score_table = format!("|PlayerX wins|PlayerO wins|Ties|\n\
                                  |-|-|-|\n\
                                  |{}|{}|{}|\n\n\
                                  ", self.state.player_x_score, self.state.player_o_score, self.state.tie_score);
 
-        let game_info = format!("{} started.\n{}'s turn.\n\n", self.state.start_player, self.state.current_player);
+        let game_info = format!("{}'s turn.\n\n", self.state.current_player);
         let board = format!("<pre>\n{}</pre>", self.ttt_lib_game.as_ref().unwrap().board());
 
-        let content = format!("{}{}{}", score_table, game_info, board);
+        let content = format!("{}{}{}{}", intro, score_table, game_info, board);
         fs::write(path, content).expect("Something went wrong writing the file");
     }
 }
