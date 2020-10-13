@@ -42,7 +42,9 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -m "${steps.play.outputs.commit_message} $(date +'%Y-%m-%dT%H:%M:%S')" -a
+          git commit -m "$COMMIT_MESSAGE $(date +'%Y-%m-%dT%H:%M:%S')" -a
+        env:
+          COMMIT_MESSAGE: ${{ steps.play.outputs.commit_message }}
 
       - name: Push changes
         uses: ad-m/github-push-action@master
