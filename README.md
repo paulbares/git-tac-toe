@@ -3,14 +3,14 @@
 |59|60|24|
 
 PlayerO started.
-PlayerO's turn.
+PlayerX's turn.
 
 <pre>
 +---+---+---+
-|   | X | O |
+|   | O |   |
 +---+---+---+
-| X | X | X |
+|   |   |   |
 +---+---+---+
-|   | O | O |
+|   |   |   |
 +---+---+---+
 </pre>
