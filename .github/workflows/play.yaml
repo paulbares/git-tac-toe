@@ -1,0 +1,50 @@
+name: Tic Tac Toe game
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  game:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Install stable toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Play
+        id: play
+        run: |
+            OUTPUT=$(cargo run  |  awk -F '### ' '{print $2}' |  while read -r line; do printf "%s & " "$line"; done; printf "\n")
+            echo $OUTPUT
+            echo "::set-output name=commit_message::$OUTPUT"
+
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "${steps.play.outputs.commit_message} $(date +'%Y-%m-%dT%H:%M:%S')" -a
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.PAK }}
