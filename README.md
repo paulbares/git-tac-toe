@@ -2,13 +2,13 @@
 
 |PlayerX wins|PlayerO wins|Ties|
 |-|-|-|
-|1605|1582|727|
+|1606|1582|727|
 
-PlayerX's turn.
+PlayerO's turn.
 
 <pre>
 +---+---+---+
-|   |   |   |
+|   |   | X |
 +---+---+---+
 |   |   | X |
 +---+---+---+
