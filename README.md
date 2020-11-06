@@ -2,9 +2,9 @@
 
 |PlayerX wins|PlayerO wins|Ties|
 |-|-|-|
-|1764|1740|803|
+|1764|1741|803|
 
-PlayerO's turn.
+PlayerX's turn.
 
 <pre>
 +---+---+---+
@@ -12,6 +12,6 @@ PlayerO's turn.
 +---+---+---+
 | O | X |   |
 +---+---+---+
-|   |   |   |
+| O |   |   |
 +---+---+---+
 </pre>
