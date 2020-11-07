@@ -2,13 +2,13 @@
 
 |PlayerX wins|PlayerO wins|Ties|
 |-|-|-|
-|1916|1850|864|
+|1916|1850|865|
 
-PlayerX's turn.
+PlayerO's turn.
 
 <pre>
 +---+---+---+
-| X |   | O |
+| X | X | O |
 +---+---+---+
 | O | O | X |
 +---+---+---+
